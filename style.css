@@ -1,1 +1,235 @@
+/* Variables CSS pour faciliter les changements de couleur */
+:root {
+    --primary-color: #007bff; /* Bleu vif */
+    --secondary-color: #6c757d; /* Gris */
+    --accent-color: #28a745; /* Vert pour les succès/promotions */
+    --background-color: #f8f9fa; /* Arrière-plan clair */
+    --card-bg: #ffffff; /* Fond des cartes */
+    --text-color: #343a40; /* Texte principal foncé */
+    --border-color: #e9ecef; /* Bordure légère */
+}
 
+/* Styles Généraux */
+body {
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 40px 0;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.8em;
+    letter-spacing: 1px;
+}
+
+header p {
+    font-size: 1.2em;
+    opacity: 0.9;
+}
+
+/* Sections */
+section {
+    padding: 40px 20px;
+    margin-bottom: 20px;
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+section h2 {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2em;
+}
+
+/* Cartes Hébergeurs */
+#comparatif {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding-top: 20px;
+}
+
+.host-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 25px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.host-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.host-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.host-header h3 {
+    margin: 0;
+    color: var(--primary-color);
+    font-size: 1.6em;
+}
+
+.host-logo {
+    max-width: 120px;
+    height: auto;
+    margin: 10px auto 20px auto;
+    border-radius: 5px;
+}
+
+.rating {
+    color: gold;
+    font-size: 1.2em;
+}
+
+.description {
+    font-size: 0.95em;
+    color: #555;
+    margin-bottom: 20px;
+    flex-grow: 1; /* Permet à la description de prendre plus de place */
+}
+
+.host-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+    text-align: left;
+}
+
+.host-card ul li {
+    margin-bottom: 8px;
+    font-size: 0.9em;
+    color: #444;
+}
+
+.host-card ul li::before {
+    content: "•";
+    color: var(--accent-color);
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+.price-action {
+    margin-top: auto; /* Pousse le prix et le bouton vers le bas */
+    padding-top: 15px;
+    border-top: 1px solid var(--border-color);
+}
+
+.price {
+    display: block;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.price strong {
+    color: var(--accent-color);
+    font-size: 1.3em;
+}
+
+/* Boutons */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    white-space: nowrap; /* Empêche le texte du bouton de se casser sur plusieurs lignes */
+}
+
+.primary-btn {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+.primary-btn:hover {
+    background-color: #218838; /* Vert plus foncé */
+}
+
+.secondary-btn {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.secondary-btn:hover {
+    background-color: #5a6268; /* Gris plus foncé */
+}
+
+/* Footer */
+footer {
+    background-color: var(--text-color);
+    color: white;
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 40px;
+    font-size: 0.9em;
+}
+
+footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2em;
+    }
+
+    header p {
+        font-size: 1em;
+    }
+
+    #comparatif {
+        grid-template-columns: 1fr; /* Une seule colonne sur mobile */
+    }
+
+    .host-card {
+        padding: 20px;
+    }
+
+    .host-header h3 {
+        font-size: 1.4em;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+}
